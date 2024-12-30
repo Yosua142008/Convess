@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>I Like You</title>
+    <style>
+      body {
+        background-color: #ffc0cb;
+        font-family: Helvetica, Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+      .container {
+        text-align: center;
+        background-color: #ffc0cb;
+        padding: 20px;
+        border-radius: 10px;
+      }
+
+      .button_wrap {
+        margin-right: 10vh;
+      }
+
+      h1 {
+        color: #ff69b4;
+        font-weight: bold;
+      }
+      button {
+        background-color: #ff69b4;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin: 5px;
+      }
+      button:hover {
+        background-color: #ff85c1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>I have a crush on you,<br />Want to be my partner?</h1>
+      <div class="button_wrap">
+        <a
+          href="https://api.whatsapp.com/send?phone=+6282271451352&text=I%20want,%20now%20we%20are%20dating"
+          target="_blank"
+        >
+          <button id="yesButton">Yes</button>
+        </a>
+        <button id="noButton" style="position: absolute">No</button>
+      </div>
+    </div>
+
+    <script>
+      const whatsappNumber = "+6282271451352";
+      const message = "Ocu, kiwkiw. Come on beybeh";
+
+      const yesButton = document.getElementById("yesButton");
+      const noButton = document.getElementById("noButton");
+
+      yesButton.addEventListener("click", () => {
+        alert("DEMI APA!!!!, OCU DI TERIMA BJIR!!!😆🤩🤩");
+        openWhatsApp();
+      });
+
+      noButton.addEventListener("click", () => {
+        moveButton();
+      });
+
+      function moveButton() {
+        const x = Math.random() * (window.innerWidth - noButton.offsetWidth);
+        const y = Math.random() * (window.innerHeight - noButton.offsetHeight);
+        noButton.style.left = `${x}px`;
+        noButton.style.top = `${y}px`;
+      }
+
+      function openWhatsApp() {
+        const encodedMessage = encodeURIComponent(message);
+        const url = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodedMessage}`;
+        window.location.href = url; // Mengarahkan langsung tanpa pop-up
+      }
+    </script>
+  </body>
+</html>
